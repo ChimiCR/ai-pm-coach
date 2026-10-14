@@ -1,0 +1,42 @@
+<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AI PM Coach – Prompty</title><style>body{margin:0;background:#0b1220;color:#eaf0fb;font:16px system-ui,Arial,sans-serif}main{max-width:860px;margin:auto;padding:30px 18px}h1{font-size:2rem}h2{font-size:1.3rem}.muted{color:#aebbd0}.panel{background:#17243a;border:1px solid #31425b;border-radius:16px;padding:22px;margin:22px 0}textarea{box-sizing:border-box;width:100%;min-height:470px;padding:18px;border:1px solid #465b79;border-radius:10px;background:#0c1729;color:#edf4ff;font:14px/1.55 ui-monospace,monospace;resize:vertical}button{border:0;background:#62b2ff;color:#071525;font-weight:700;border-radius:9px;padding:13px 20px;cursor:pointer}button:focus{outline:3px solid white}.note{border-left:3px solid #ffcc70;padding-left:14px}</style></head><body><main><p class="muted">AI PM Coach · Lekce 01</p><h1>Project Takeover Assessment</h1><p>Obecný prompt pro převzetí IT projektu. Zkopíruj jej do schváleného firemního Microsoft 365 Copilotu a nahraď zástupné názvy.</p><section class="panel"><h2>Prompt 1 – Audit převzetí projektu</h2><textarea id="prompt" readonly>Act as a senior IT Project Manager taking over [PROJECT NAME], with primary responsibility for [WORKSTREAM / RELEASE].
+
+Analyze all available references in the current Copilot Notebook.
+
+Prepare a structured Project Takeover Assessment covering:
+
+1. PROJECT OVERVIEW
+- Business objectives and expected benefits
+- Overall project scope
+- Project history and current phase
+
+2. WORKSTREAM / RELEASE SCOPE
+- Key business requirements from the BRD
+- Technical solution from the available solution documentation
+- Main deliverables
+- Dependencies and assumptions
+- Scope exclusions and ambiguities
+
+3. PROJECT GOVERNANCE
+- Key stakeholders and responsibilities
+- Relevant steering committee decisions
+- Approved vs. proposed baselines
+- Financial information, explicitly identifying what is included in the approved budget
+
+4. DELIVERY READINESS
+- Known milestones and deadlines
+- Open decisions and blockers
+- Main delivery risks
+- Missing information required to establish a reliable delivery plan
+
+5. TAKEOVER ACTION PLAN
+- Top 10 questions to clarify with the previous PM and delivery teams
+- Top 5 priorities for the incoming PM
+
+IMPORTANT:
+Clearly separate previous releases from the release being taken over.
+Do not treat historical documents as evidence of current status.
+For every important statement cite the specific source document.
+Clearly distinguish confirmed facts, assumptions, contradictions and missing information.
+Never invent milestones, dates, budgets or decisions.
+
+Respond in Czech, keeping original English project terminology where appropriate.</textarea><p><button id="copy" type="button">Kopírovat prompt</button> <span id="status" aria-live="polite"></span></p></section><p class="note"><strong>Bezpečnost:</strong> Tato veřejná stránka neobsahuje firemní data a nic neodesílá. Nevkládej na veřejný GitHub ani do neschválených externích služeb interní dokumenty nebo odpovědi firemního Copilotu.</p><p class="muted">Další lekce přidáme po vyhodnocení prvního testu.</p></main><script>document.getElementById('copy').addEventListener('click',async()=>{const t=document.getElementById('prompt');try{await navigator.clipboard.writeText(t.value);document.getElementById('status').textContent='Zkopírováno';}catch(e){t.focus();t.select();document.getElementById('status').textContent='Text označen – stiskni Ctrl+C';}});</script></body></html>
